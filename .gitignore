@@ -1,0 +1,40 @@
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Environments
+__pycache__/
+venv/
+env/
+.venv/
+.conda/
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+env.bak/
+venv.bak/
+
+# Data
+data/
+*.csv
+*.xls
+*.xlsx
+
+# Logs
+*.log
+
+# Compiled source
+__pycache__/
+
+# Jupyter notebook configuration
+.jupyter/
+
+# System Files
+.DS_Store
+Thumbs.db
