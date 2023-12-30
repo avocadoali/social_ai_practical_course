@@ -1,413 +1,233 @@
 \documentclass[10pt]{article}         %% What type of document you're writing.
 \usepackage[a4paper,margin=1in,landscape]{geometry}
 \usepackage{amsmath,amsfonts,amssymb}   %% AMS mathematics macros
-\usepackage{comment}
-
-\title{Fomulas and Equations\\
-{\footnotesize Scence and Social-aware Motion Prediction for Autonomous Driving}
-}
-
-\author{\IEEEauthorblockN{Alfred Nguyen}
-\IEEEauthorblockA{\textit{Department of Computer Science} \\
-\textit{Technical University of Munich} \\
-85748 Garching, Bavaria\\
-alfred.nguyen@tum.de}G
-}
+\usepackage{physics}
 
 \begin{document}
 
-\begin{equation}
-s_i(k+1) - s_i(k) = \begin{bmatrix} \overline{\theta}_{s_1} & \overline{\theta}_{s_2} & \overline{\theta}_{s_3} - \overline{\theta}_{v_1} & \overline{\theta}_{s_4} - \overline{\theta}_{v_2} & \overline{\theta}_{v_4} & \overline{\theta}_{v_3} \end{bmatrix} \begin{bmatrix} s_i(k-1) \\ s_i(k-2) \\ v_i(k) \\ v_i(k-1) \\ v_i(k+1) \\ - v_i(k-2) \end{bmatrix}
-\end{equation}
-
-
-\begin{equation}
-\begin{split}
-Given\ Variables:\\
-\overline{\theta}_{s_1} \\
-\overline{\theta}_{s_2} \\
-\overline{\overline{\theta}_{s_3}} \\
-\overline{\overline{\theta}_{s_4}} \\
-\overline{\theta}_{v_4} \\
-\overline{\theta}_{v_3} 
-\end{split}
-\end{equation}
-
-
-\begin{equation}
-\begin{split}
-To\ be\ solved: \\
-\theta_{s_1} \\ \theta_{s_2} \\ \theta_{s_3} \\ \theta_{s_4} \\ \theta_{s_5} \\ \theta_{v_1} \\ \theta_{v_2} \\ \theta_{v_3} \\ \theta_{v_4} 
-\end{split}
-\end{equation}
-\begin{equation}
-s_i(k+1) - s_i(k) = \begin{bmatrix} \overline{\theta}_{s_1} & \overline{\theta}_{s_2} & \overline{\theta}_{s_3} - \overline{\theta}_{v_1} & \overline{\theta}_{s_4} - \overline{\theta}_{v_2} & \overline{\theta}_{v_4} & \overline{\theta}_{v_3} \end{bmatrix} \begin{bmatrix} s_i(k-1) \\ s_i(k-2) \\ v_i(k) \\ v_i(k-1) \\ v_i(k+1) \\ - v_i(k-2) \end{bmatrix}
-\end{equation}
-
-
-\begin{equation}
-\begin{split}
-Definitions:\\
-\overline{\theta}_{s_1} = \theta_{s_1}\\ 
-\overline{\theta}_{s_2} = \theta_{s_2}\\
-\overline{\theta}_{s_3} = \theta_{s_3}\\
-\overline{\theta}_{s_4} = \theta_{s_4}\\
-\overline{\theta}_{v_1} = \frac {\theta_{v_1}\theta_{s_5} } {\theta_{v_4}}\\
-\overline{\theta}_{v_2} = \frac {\theta_{v_2}\theta_{s_5} } {\theta_{v_4}}\\
-\overline{\theta}_{v_3} = \frac {\theta_{v_3}\theta_{s_5} } {\theta_{v_4}}\\
-\overline{\theta}_{v_4} = \frac{\theta_{s_5} } {\theta_{s_4}}\\
-\overline{\overline{\theta}_{s_3}} =\overline{\theta}_{s_3} - \overline{\theta}_{v_1} \\
-\overline{\overline{\theta}_{s_4}} = \overline{\theta}_{s_4} - \overline{\theta}_{v_2} \\
-\end{split}
-\end{equation}
-
-
-
-\begin{equation}
-s_i(k+1) - s_i(k) = \begin{bmatrix} \overline{\theta}_{s_1} & \overline{\theta}_{s_2} & \overline{\overline{\theta}}_{s_3} & \overline{\overline{\theta}}_{s_4} & \overline{\theta}_{v_4} & \overline{\theta}_{v_3} \end{bmatrix} \begin{bmatrix} s_i(k-1) \\ s_i(k-2) \\ v_i(k) \\ v_i(k-1) \\ v_i(k+1) \\ - v_i(k-2) \end{bmatrix}
-\end{equation}
-
-
-\begin{equation}
-\begin{split}
-Definitions:\\
-\overline{\theta}_{s_1} = \theta_{s_1}\\ 
-\overline{\theta}_{s_2} = \theta_{s_2}\\
-\overline{\theta}_{v_3} = \frac {\theta_{v_3}\theta_{s_5} } {\theta_{v_4}}\\
-\overline{\theta}_{v_4} = \frac{\theta_{s_5} } {\theta_{s_4}}\\
-\overline{\overline{\theta}}_{s_4} =\theta_{s_4} - \frac {\theta_{v_2}\theta_{s_5} } {\theta_{v_4}}\\
-\overline{\overline{\theta}}_{s_3} =\theta_{s_3}  - \frac {\theta_{v_1}\theta_{s_5} } {\theta_{v_4}}\\
-\end{split}
-\end{equation}
-
-
-
-
-
-
-
-
-
-
-
-Normalisation step
-
-
-\begin{equation}
-s_i(k+1) - s_i(k) = \begin{bmatrix} 
-    {\theta}_{s_1} & 
-    {\theta}_{s_2} &
-    {\theta}_{s_3} - \frac{\theta_{v_1}\theta_{s_5}}{\theta_{v_4}} &
-    {\theta}_{s_4} - \frac{\theta_{v_2}\theta_{s_5}}{\theta_{v_4}} &
-    \frac{\theta_{s_5} } {\theta_{s_4}} &
-    \frac {\theta_{v_3}\theta_{s_5} } {\theta_{v_4}} 
-
-    \end{bmatrix}
-    \begin{bmatrix} s_i(k-1) \\ s_i(k-2) \\ v_i(k) \\ v_i(k-1) \\ v_i(k+1) \\ - v_i(k-2) \end{bmatrix}
-\end{equation}
-
-\begin{equation}
-|| t - A x || ^ 2
-\end{equation}
-
-\begin{equation}
-|| t - A x || ^ 2 + lambda || x || ^ 2
-\end{equation}
-
-\begin{equation}
-\Vert \begin{bmatrix}
-   t & 0 
-\end{bmatrix}
-- diag (A , I * \sqrt\lambda ) x 
-\Vert ^2
-\end{equation}
-
-
-\begin{comment}
-    
-\begin{equation}
-   || t - A x || ^ 2
-    \frac{\theta_{s_5} } {\theta_{s_4}} &
-    \frac {\theta_{v_3}\theta_{s_5} } {\theta_{v_4}} 
-    {\theta}_{s_3} - \frac{\theta_{v_1}\theta_{s_5}}{\theta_{v_4}} &
-    {\theta}_{s_4} - \frac{\theta_{v_2}\theta_{s_5}}{\theta_{v_4}} &
-    \frac{\theta_{s_5} } {\theta_{s_4}} &
-    \frac {\theta_{v_3}\theta_{s_5} } {\theta_{v_4}} 
-\end{equation}
-
-\end{comment}
-
-\begin{equation}
-s_i(k+1) - s_i(k) = 
-    \begin{bmatrix} 
-        s_i(k-1) &
-        s_i(k-2) &
-        v_i(k)   &
-        v_i(k-1) &
-        v_i(k+1) &
-        v_i(k)   &
-        v_i(k-1) &
-        - v_i(k-2) 
-    \end{bmatrix}
-\end{equation}
-
-
-
-\begin{comment}
-    
-\begin{equation}
-    \begin{bmatrix} 
-        a \\ b\\c\\d\\ \frac e t \\ \frac {qe} t \\ \frac{re} t \\ \frac{se}t
-    \end{bmatrix}
-    \begin{bmatrix}
-        \theta_{s_1} \\ 
-        \theta_{s_2} \\
-        \theta_{s_3} \\
-        \theta_{s_4} \\
-        \frac{\theta_{s_5}} {\theta_{v_4}} \\
-        \frac{\theta_{v_1} \theta_{s_5} } {\theta_{v_4}} \\
-        \frac{\theta_{v_2} \theta_{s_5} } {\theta_{v_4}} \\
-        \frac{\theta_{v_3} \theta_{s_5} } {\theta_{v_4}} \\
-    \end{bmatrix}
-\end{equation}
-
-
-
-\begin{equation}
-s_i(k+1) - s_i(k) = 
-    \begin{bmatrix} 
-        s_i(k-1) &
-        s_i(k-2) &
-        v_i(k)   &
-        v_i(k-1) &
-        v_i(k+1) &
-        v_i(k)   &
-        v_i(k-1) &
-        - v_i(k-2) 
-    \end{bmatrix}
-    \begin{bmatrix}
-        \theta_{s_1} \\ 
-        \theta_{s_2} \\
-        \theta_{s_3} \\
-        \theta_{s_4} \\
-        \frac{\theta_{s_5}} {\theta_{v_4}} \\
-        \frac{\theta_{v_1} \theta_{s_5} } {\theta_{v_4}} \\
-        \frac{\theta_{v_2} \theta_{s_5} } {\theta_{v_4}} \\
-        \frac{\theta_{v_3} \theta_{s_5} } {\theta_{v_4}} \\
-    \end{bmatrix}
-\end{equation}
-\end{comment}
-\\
-
-tsdkflsdjf
-\\
-sldk
-\\
-\\
-sdf
-\\
-sdf
-
-Distance:
-
-\begin{equation}
+Acceleration model with 4 parameters
 \begin{align}
-s_i(k+1) &= s_i(k) +\theta_{s_1}  s_i(k-1) +\theta_{s_2} s_i(k-2) +\theta_{s_3} v_i(k)   +\theta_{s_4} v_i(k-1) 
-+\theta_{s_5} a_i(k) \\
-a_i(k) &= \frac
-    {s_i(k+1) - s_i(k) -\theta_{s_1}  s_i(k-1) -\theta_{s_2} s_i(k-2) -\theta_{s_3} v_i(k)   - \theta_{s_4} v_i(k-1) } 
-    {\theta_{s_5} }
+a(k-1) &= - \overline c_1 a(k)  + \overline c_2 \bigl( v(k+1) - v(k) \bigr) \\
+a(k-1) &= - \overline c_3 a(k)  + \overline c_4 \bigl( s(k+1) - s(k) - dt \  v(k)\bigr)
 \end{align}
-\end{equation}
 
-Velocity:
-\begin{equation}
-  \begin{align}
-  v_i(k+1) &= \theta_{v_1}  v_i(k) + \theta_{v_2} v_i(k-1) + \theta_{v_3} v_i(k-2)   + \theta_{v_4} a_i(k) \\
-  a_i(k)   &= \frac { v_i(k+1) - \theta_{v_1}  v_i(k) -\theta_{v_2} v_i(k-1) - \theta_{v_3} v_i(k-2)}
-                    {\theta_{v_4}}
-  \end{align}
-\end{equation}
-
-Equate by acceleration $a_i(k)$:
-\begin{multline}
-    \theta_{v_4} \Big(s_i(k+1) - s_i(k) -\theta_{s_1}  s_i(k-1) -\theta_{s_2} s_i(k-2) -\theta_{s_3} v_i(k)   - \theta_{s_4} v_i(k-1) \Big)
+Model in matrix notation
+\begin{align}
+    \begin{bmatrix}
+        a(k-1) \\ a(k-1)       
+    \end{bmatrix}
     =
-    \theta_{s_5} \Big(v_i(k+1) - \theta_{v_1}  v_i(k) -\theta_{v_2} v_i(k-1) - \theta_{v_3} v_i(k-2)\Big)
-\end{multline}
+    \begin{bmatrix}
+         -a(k)  & v(k+1) - v(k)  & 0 & 0 \\
+         0 & 0 & -a(k) &    s(k+1) - s(k) - dt \  v(k)
+        \end{bmatrix}
+        \begin{bmatrix}
+        \overline c_1 \\
+        \overline c_2 \\
+        \overline c_3 \\
+        \overline c_4 \\
+    \end{bmatrix}
+\end{align}
 
-\begin{comment}
-\begin{multline}
-    \theta_{v_4} s_i(k+1) - \theta_{v_4} s_i(k) -\theta_{v_4} \theta_{s_1}  s_i(k-1) -\theta_{v_4} \theta_{s_2} s_i(k-2) -\theta_{v_4} \theta_{s_3} v_i(k)   -\theta_{v_4}  \theta_{s_4} v_i(k-1) \Big)\\
+Add x and y components
+
+\begin{align}
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_x(k-1) \\ 
+        a_y(k-1) \\ 
+        a_y(k-1)       
+    \end{bmatrix}
     =
-    \theta_{s_5} v_i(k+1) -\theta_{s_5} \theta_{v_1}  v_i(k) -\theta_{s_5}\theta_{v_2} v_i(k-1) -\theta_{s_5} \theta_{v_3} v_i(k-2)
-\end{multline}
-\end{comment}
-
-Solve for $ s_i(k+1) - s_i(k)$:
-\begin{align}
-    \theta_{v_4} s_i(k+1) - \theta_{v_4} s_i(k) =
-    &\theta_{v_4} \theta_{s_1}  s_i(k-1) +\theta_{v_4} \theta_{s_2} s_i(k-2) +\theta_{v_4} \theta_{s_3} v_i(k)   +\theta_{v_4}  \theta_{s_4} v_i(k-1)\\
-    &+\theta_{s_5} v_i(k+1) -\theta_{s_5} \theta_{v_1}  v_i(k) -\theta_{s_5}\theta_{v_2} v_i(k-1) -\theta_{s_5} \theta_{v_3} v_i(k-2)
+    \begin{bmatrix}
+        -a_x(k)  & v_x(k+1) - v_x(k)  & 0 & 0                   \\ 
+        0 & 0 & -a_x(k) &    s_x(k+1) - s_x(k) - dt \  v_x(k)   \\ 
+        -a_y(k)  & v_y(k+1) - v_y(k)  & 0 & 0                   \\
+        0 & 0 & -a_y(k) &    s_y(k+1) - s_y(k) - dt \  v_y(k)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_1 \\
+        \overline c_2 \\
+        \overline c_3 \\
+        \overline c_4 \\
+   \end{bmatrix}
 \end{align}
 
-\begin{aligned}
-s_i(k+1) - s_i(k) =  &\theta_{s_1}  s_i(k-1) 
-    + \theta_{s_2} s_i(k-2) 
-    + \theta_{s_3} v_i(k)   
-    +  \theta_{s_4} v_i(k-1) \\
-    & +\frac{\theta_{s_5}}{\theta_{v_4}}             v_i(k+1)
-    -\frac{\theta_{s_5}\theta_{v_1}}{\theta_{v_4}} v_i(k)  
-    -\frac{\theta_{s_5}\theta_{v_2}}{\theta_{v_4}} v_i(k-1) 
-    -\frac{\theta_{s_5}\theta_{v_3}}{\theta_{v_4}} v_i(k-2)
-\end{aligned}
-
-\begin{comment}
-    \begin{multline}
-        s_i(k+1) - s_i(k) =\\
-        \frac{ \theta_{s_5} v_i(k+1) -\theta_{s_5} \theta_{v_1}  v_i(k) -\theta_{s_5}\theta_{v_2} v_i(k-1) -\theta_{s_5} \theta_{v_3} v_i(k-2) +\theta_{v_4} \theta_{s_1}  s_i(k-1) +\theta_{v_4} \theta_{s_2} s_i(k-2) +\theta_{v_4} \theta_{s_3} v_i(k)   +\theta_{v_4}  \theta_{s_4} v_i(k-1) \Big) }
-        {\theta_{v_4}}
-    \end{multline}
-\end{comment}
-\begin{comment}
-    
-Solve system:
-\begin{center}
-    
-\begin{equation}
-s_i(k+1) - s_i(k) = 
-    \begin{bmatrix} 
-         s_i(k-1) 
-        &s_i(k-2) 
-        &v_i(k)   
-        &v_i(k-1)
-        &v_i(k+1)
-        &v_i(k)  
-        &v_i(k-1) 
-        &v_i(k-2) 
-    \end{bmatrix} 
-    \begin{bmatrix} 
-           a 
-        \\ b 
-        \\ c 
-        \\ d 
-        \\ e 
-        \\ f 
-        \\ g              
-        \\ h 
-    \end{bmatrix}
-\end{equation}
-\end{center}
-
-Mapping:
-\begin{multline}
-        \\ a =   \theta_{s_1}                                 
-        \\ b =   \theta_{s_2}                                 
-        \\ c =   \theta_{s_3}                                 
-        \\ d =   \theta_{s_4}                                
-        \\ e =   \frac{\theta_{s_5}}{\theta_{v_4}}            
-        \\ f = - \frac{\theta_{s_5}\theta_{v_1}}{\theta_{v_4}}
-        \\ g = - \frac{\theta_{s_5}\theta_{v_2}}{\theta_{v_4}}
-        \\ h = - \frac{\theta_{s_5}\theta_{v_3}}{\theta_{v_4}}
-\end{multline}
-
-\end{comment}
-
-Solve system:
-\begin{center}
-    
-\begin{equation}
-s_i(k+1) - s_i(k) = 
-    \begin{bmatrix} 
-         s_i(k-1) 
-        &s_i(k-2) 
-        &v_i(k)   
-        &v_i(k-1)
-        &v_i(k+1)
-        &v_i(k)  
-        &v_i(k-1) 
-        &v_i(k-2) 
-    \end{bmatrix} 
-    \begin{bmatrix} 
-        \theta_{s_1}                                 
-        \\ \theta_{s_2}                                 
-        \\ \theta_{s_3}                                 
-        \\ \theta_{s_4}                                
-        \\ \frac{\theta_{s_5}}{\theta_{v_4}}            
-        \\ \frac{\theta_{s_5}\theta_{v_1}}{\theta_{v_4}}
-        \\ \frac{\theta_{s_5}\theta_{v_2}}{\theta_{v_4}}
-        \\ \frac{\theta_{s_5}\theta_{v_3}}{\theta_{v_4}}
-    \end{bmatrix}
-\end{equation}
-
-\end{center}
-
-To solve this we use:
-\begin{equation}
-||t-Ax||^2
-\end{equation}
-
-Where:
-\begin{align}
-t &=   s_i(k+1) - s_i(k) 
-\\
-A &=  \begin{bmatrix} 
-         s_i(k-1) 
-        &s_i(k-2) 
-        &v_i(k)   
-        &v_i(k-1)
-        &v_i(k+1)
-        &v_i(k)  
-        &v_i(k-1) 
-        &v_i(k-2) 
-    \end{bmatrix} 
-\\
-x &=
-    \begin{bmatrix} 
-        \theta_{s_1}                                 
-        \\ \theta_{s_2}                                 
-        \\ \theta_{s_3}                                 
-        \\ \theta_{s_4}                                
-        \\ \frac{\theta_{s_5}}{\theta_{v_4}}            
-        \\ \frac{\theta_{s_5}\theta_{v_1}}{\theta_{v_4}}
-        \\ \frac{\theta_{s_5}\theta_{v_2}}{\theta_{v_4}}
-        \\ \frac{\theta_{s_5}\theta_{v_3}}{\theta_{v_4}}
-    \end{bmatrix}
-\end{align}
-
-To solve for 9 parameters in $x$, we normalize the system:
- 
-\begin{equation}
-\Bigg\| 
-    \begin{bmatrix}
-    t \\ 0
-    \end{bmatrix}
-    -
-    \begin{bmatrix}
-    A & 0\\ 
-    0 & \mathbb{I} * \sqrt{\lambda}
-    \end{bmatrix}
-    \begin{bmatrix}
-    x \\
-    x"
-    \end{bmatrix}
-\Bigg\| ^2
-\end{equation}
-
-New equation:
-
-We want to sovle this system
-
+For easier implementation split into two models
 
 \begin{align}
-a(k-1) = - c_1 a(k)  + c_2 (v(k-1) - v(k))  \\
-a(k-1) = - c_3 a(k)  + c_4 (s(k+1) - s(k) - v(k))
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_y(k-1) \\ 
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -a_x(k)  & v_x(k+1) - v_x(k)   \\ 
+        -a_y(k)  & v_y(k+1) - v_y(k)   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_1 \\
+        \overline c_3 \\
+   \end{bmatrix}
 \end{align}
 
 
 
+\begin{align}
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_y(k-1)       
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -a_x(k) &    s_x(k+1) - s_x(k) - dt \  v_x(k)   \\ 
+        -a_y(k) &    s_y(k+1) - s_y(k) - dt \  v_y(k)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_2 \\
+        \overline c_4 \\
+   \end{bmatrix}
+\end{align}
+
+Mind dump
 
 
-%
+\begin{align}
+\Rightarrow
+\end{align}
+
+
+
+\begin{align}
+a_x(k-1) &= - \overline c_1 a_x(k)  + \overline c_2 \Bigl(v_x(k+1) - v_x(k)\Bigr)  \\
+a_x(k-1) &= - \overline c_3 a_x(k)  + \overline c_4 \Bigl(s_x(k+1) - s_x(k) - dt \  v_x(k)\Bigr) \\
+a_y(k-1) &= - \overline c_1 a_y(k)  + \overline c_2 \Bigl(v_y(k+1) - v_y(k)\Bigr)  \\
+a_y(k-1) &= - \overline c_3 a_y(k)  + \overline c_4 \Bigl(s_y(k+1) - s_y(k) - dt \  v_y(k)\Bigr)
+\end{align}
+Extended forumal with added features (7 parameters)
+
+\begin{align}
+v(k+1) &= v(k) + c_0 v(k-1) + c_1 a(k) + c_2 a(k-1) \\
+s(k+1) &= s(k) + c_3 s(k-1) + dt \  v(k) + c_4v(k-1) + c_5 a(k) + c_6 a(k-1) \\
+\end{align}
+
+
+
+\begin{align}
+c_2 a(k-1) &= v(k+1) - v(k) - c_0 v(k-1) - c_1 a(k)                           \\
+c_6 a(k-1) &= s(k+1) - s(k) - c_3 s(k-1) - dt \  v(k) - c_4v(k-1) - c_5 a(k)  \\
+\end{align}
+
+\begin{align}
+a(k-1) &= \frac {v(k+1) - v(k)} {c_2} - \frac{c_0}{c_2} v(k-1) -\frac{c_1}{c_2} a(k)                           \\
+a(k-1) &= \frac{ s(k+1) - s(k) }{c_6}  - \frac{ c_3 s(k-1) }{c_6}  - \frac{dt}{c_6} v(k) - \frac{c_4}{c_6}v(k-1) - \frac{c_5}{c_6} a(k)  \\
+\end{align}
+
+Imagine all coefficient have dashes
+
+\begin{align}
+a(k-1) &= c_2 \bigl( v(k+1) - v(k) \bigr)  - c_0 v(k-1) - c_1 a(k)                          \\
+a(k-1) &= c_6 \bigl( s(k+1) - s(k) - dt \  v(k) \bigr) - c_3 s(k-1) - c_4v(k-1) - c_5 a(k)  \\
+\end{align}
+
+Equation for the model 
+\begin{align}
+a(k-1) &=  - c_0 v(k-1) - c_1 a(k) + c_2 \bigl( v(k+1) - v(k) \bigr)                            \\
+a(k-1) &= - c_3 s(k-1) - c_4v(k-1) - c_5 a(k)  + c_6 \bigl( s(k+1) - s(k) - dt \  v(k) \bigr)   \\
+\end{align}
+
+Here we solve the following system:
+\begin{align}
+    \begin{bmatrix}
+        a(k-1) \\ 
+        a(k-1) \\ 
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v(k-1)   & - a(k) &  v(k+1) - v(k) & 0 & 0 & 0 & 0          \\
+        0 & 0 & 0 & - s(k-1) & - v(k-1) & -  a(k)  &+ \bigl( s(k+1) - s(k) - dt \  v(k) \bigr)   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_0 \\
+        \overline c_1 \\
+        \overline c_2 \\
+        \overline c_3 \\
+        \overline c_4 \\
+        \overline c_5 \\
+        \overline c_6 \\
+   \end{bmatrix}
+\end{align}
+
+We add the x and y components (imagine the matrix also contains the indices)
+\begin{align}
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_x(k-1) \\ 
+        a_y(k-1) \\ 
+        a_y(k-1) \\ 
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v(k-1)   & - a(k) &  v(k+1) - v(k) & 0 & 0 & 0 & 0          \\
+        0 & 0 & 0 & - s(k-1) & - v(k-1) & -  a(k)  &+ \bigl( s(k+1) - s(k) - dt \  v(k) \bigr)   \\
+        v(k-1)   & - a(k) &  v(k+1) - v(k) & 0 & 0 & 0 & 0          \\
+        0 & 0 & 0 & - s(k-1) & - v(k-1) & -  a(k)  &+ \bigl( s(k+1) - s(k) - dt \  v(k) \bigr)   \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_0 \\
+        \overline c_1 \\
+        \overline c_2 \\
+        \overline c_3 \\
+        \overline c_4 \\
+        \overline c_5 \\
+        \overline c_6 \\
+   \end{bmatrix}
+\end{align}
+
+
+We split the model into two models for easier implementation
+
+\begin{align}
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_y(k-1) \\ 
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        v_x(k-1)   & - a_x(k) &  v_x(k+1) - v_x(k) \\
+        v_y(k-1)   & - a_y(k) &  v_y(k+1) - v_y(k) \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_0 \\
+        \overline c_1 \\
+        \overline c_2 \\
+   \end{bmatrix}
+\end{align}
+
+\begin{align}
+    \begin{bmatrix}
+        a_x(k-1) \\ 
+        a_y(k-1) \\ 
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        - s_x(k-1) & - v_x(k-1) & -  a_x(k)  &s_x(k+1) - s_x(k) - dt \  v_x(k) \\
+        - s_y(k-1) & - v_y(k-1) & -  a_y(k)  &s_y(k+1) - s_y(k) - dt \  v_y(k) \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \overline c_3 \\
+        \overline c_4 \\
+        \overline c_5 \\
+        \overline c_6 \\
+   \end{bmatrix}
+\end{align}
+
+
 \end{document}
+
+
+
+
+
+
 
