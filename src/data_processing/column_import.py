@@ -2,7 +2,7 @@ import pandas as pd
 from .config_file import dataset_dir
 
 # Use pandas to read the CSV file into a DataFrame
-print('Column dir')
+print('Importet column directory')
 print(dataset_dir)
 df = pd.read_csv(dataset_dir)
 

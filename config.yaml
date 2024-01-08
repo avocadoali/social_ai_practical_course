@@ -1,0 +1,10 @@
+data_import:
+  dataset_dir_raw: '../../data/raw/inD/data/'
+  recording: "00"
+  n: 384
+
+column_import:
+  dataset_dir: '../../data/processed/x_y_recording_00_range_384.csv'
+
+directories:
+  root_directory: '/home/ali/tum/motion_planning/social_ai_practical_course'

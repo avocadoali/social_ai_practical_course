@@ -30,19 +30,19 @@ def perform_linear_regression(X, y):
     for x in model.coef_:
         print(x)
 
-
     # Visualize the results
-    plt.figure(figsize=(12, 4))
+    plt.figure(figsize=(8, 4))
 
-    # Scatter plot of actual vs. predicted values
-    plt.subplot(1, 3, 1)
+    # Scatter plot of actual vs. predicted values with locus (line of identity)
+    plt.subplot(1, 2, 1)
     plt.scatter(y_test, y_pred)
+    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')  # Locus
     plt.title('Actual vs. Predicted Values')
     plt.xlabel('Actual Values')
     plt.ylabel('Predicted Values')
 
     # Residual plot
-    plt.subplot(1, 3, 2)
+    plt.subplot(1, 2, 2)
     residuals = y_test - y_pred
     plt.scatter(y_pred, residuals)
     plt.title('Residual Plot')
@@ -50,12 +50,6 @@ def perform_linear_regression(X, y):
     plt.ylabel('Residuals')
     plt.axhline(y=0, color='r', linestyle='--')  # Add a horizontal line at y=0
 
-    # Distribution of residuals
-    plt.subplot(1, 3, 3)
-    plt.hist(residuals, bins=20)
-    plt.title('Distribution of Residuals')
-    plt.xlabel('Residuals')
-    plt.ylabel('Frequency')
-
     plt.tight_layout()
     plt.show()
+    return model

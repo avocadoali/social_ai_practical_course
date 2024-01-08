@@ -5,6 +5,41 @@
 
 \begin{document}
 
+Integration model:
+
+\begin{align}
+v(k+1) &= v(k) + c_1 a(k) + c_2a(k-1)\\
+s(k+1) &= s(k) + dt  \ v(k)+ c_3 a(k) + c_4 a(k-1)
+\end{align}
+
+We have to split each entry into its x- and y-components
+\begin{align}
+v_x(k+1)    &= v_x(k) + c_1 a_x(k)  +  c_2a_x(k-1)
+\\ v_y(k+1) &= v_y(k) + c_1 a_y(k)  + c_2 a_y(k-1)
+\\ s_x(k+1) &= s_x(k) + dt  \ v_x(k)+ c_3 a_x(k) + c_4 a_x(k-1)
+\\ s_y(k+1) &= s_y(k) + dt \ v_y(k) + c_3 a_y(k) + c_4 a_y(k-1)
+\end{align}
+
+
+
+The constants are defined as such:
+\begin{align}
+\frac{1}{c_2} = \overline c_2
+\\ \frac{c_1}{c_2} = \overline c_1 
+\\ \frac{1}{c_4} = \overline c_4
+\\ \frac{c_3}{c_4} = \overline c_3
+\end{align}
+
+Rearange the constants:
+\begin{align}
+c_2 =  \frac{1}{\overline c_2}
+\\ c_1 = \overline c_1  \overline c_2
+\\ c_4 = \frac{1}{\overline c_4}
+\\ c_3 = \overline c_3 \overline c_4
+\end{align}
+
+
+
 Acceleration model with 4 parameters
 \begin{align}
 a(k-1) &= - \overline c_1 a(k)  + \overline c_2 \bigl( v(k+1) - v(k) \bigr) \\
