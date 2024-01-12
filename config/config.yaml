@@ -1,0 +1,14 @@
+# config.yml
+data:
+  raw_data_path: "data/raw/inD/data/"
+  recording: "00"
+  n: 384
+
+  processed_data_path:
+    processed_data_test_set_0: "/data/processed/x_y_recording_00_range_384.csv"
+
+directories:
+  root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
+
+models:
+  model_save_path: "results/models/"
