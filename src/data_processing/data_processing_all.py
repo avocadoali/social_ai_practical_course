@@ -5,7 +5,7 @@ import numpy as np
 from loguru import logger
 from tracks_import import read_from_csv
 
-from config.settings import raw_data_path_ind, ROOT_DIR
+from config.settings import raw_data_path_ind, processed_data_inD,ROOT_DIR
 
 def process_data(dataset_dir_raw, recording):
     # Check if the directory exists
@@ -53,7 +53,8 @@ def process_data(dataset_dir_raw, recording):
     new_dataframe = pd.DataFrame(selected_data_unstacked)
     #display(new_dataframe)
 
-    output_directory = '../../data/processed/'
+    output_directory = processed_data_inD
+
     file_name = f'x_y_recording_{recording}_range_{n}.csv'
     output_file_path = os.path.join(output_directory, file_name)
 
@@ -61,7 +62,7 @@ def process_data(dataset_dir_raw, recording):
     new_dataframe.to_csv(output_file_path, index=False)
 
 
-# Example usage for data ind and all recording
+# Example usage for ind data and getting all recordings
 for i in range(34):
     # TODO fix this absolut path relation using ROOT_DIR
     recording = str(i).zfill(2)
