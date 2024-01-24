@@ -1,10 +1,12 @@
 # Todo
 - [X] Import the exid data
-- [ ] 4 Param Model
-- [ ] 2 Param Model
-- [ ] New model for the sample interaction dataset of baris
-- [ ] train the model on baris data
-- [ ] Visualizations
+- [X] 4 Param Model
+- [X] 2 Param Model
+- [X] New model for the sample interaction dataset of baris
+- [ ] implement old models for comparison
+- [ ] train the model on baris data 
+- [ ] test baris data on multiple scenarios
+- [ ] Visualizations of findings
 - [ ] presentation 
 
 Frage:
@@ -14,9 +16,6 @@ relative distance x/y
 relative velocity
 relative acceleration 
 acceleration should 
-
-
-
 
 # Concept presentation
 ## Problem statement
