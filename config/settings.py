@@ -14,7 +14,8 @@ raw_data_path_exid= data_path("data/raw/exiD/data/")
 processed_data_inD = data_path("data/processed/exiD/")
 processed_data_exiD = data_path("data/processed/exiD/")
 
-processed_data_dif_set = data_path("data/processed/scenario_samples/test_set/lane_merging_merged_dif_test.csv")
+processed_data_dif_set = data_path('data/processed/scenario_samples/test_set/lane_merging_merged_dif_test.csv')
+processed_data_dif_set = data_path('data/processed/scenario_samples/lane_merging/dif_set/test_set_00.csv')
 
 processed_data_test_set_0 = data_path("data/processed/inD/x_y_recording_00_range_384.csv")
 saved_models_path = data_path("results/models/")
