@@ -11,7 +11,7 @@ def data_path(path):
 
 raw_data_path_ind = data_path("data/raw/inD/data/")
 raw_data_path_exid= data_path("data/raw/exiD/data/")
-processed_data_inD = data_path("data/processed/exiD/")
+processed_data_inD = data_path("data/processed/inD/")
 processed_data_exiD = data_path("data/processed/exiD/")
 
 processed_data_dif_set = data_path('data/processed/scenario_samples/test_set/lane_merging_merged_dif_test.csv')

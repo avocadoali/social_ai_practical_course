@@ -13,8 +13,8 @@ def evaluate(y_test, y_pred):
 
     # Print the results in scientific notation
     print(f'Mean Squared Error (MSE): {mse:.4e}')
-    print(f'Mean Absolute Error (MAE): {mae:.4e}')
-    print(f'R-squared (R²) Score: {r2:.4e}')
+    ### TODO print(f'Mean Absolute Error (MAE): {mae:.4e}')
+    ### TODO print(f'R-squared (R²) Score: {r2:.4e}')
 
 
     # Scatter plot of actual vs. predicted values with locus (line of identity)
@@ -35,5 +35,5 @@ def evaluate(y_test, y_pred):
     #plt.axhline(y=0, color='r', linestyle='--')  # Add a horizontal line at y=0
 
     plt.tight_layout()
-    plt.show()
+    ### TODO plt.show()
  

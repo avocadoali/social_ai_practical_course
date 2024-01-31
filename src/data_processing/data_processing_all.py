@@ -39,8 +39,8 @@ def process_data(dataset_dir_raw, recording):
     selected_tracks = df_tracks[df_tracks['trackId'].isin(track_ids)]
 
     # Change the position to the distance by subtracting the starting position from the position lists
-    selected_tracks.loc[:, 'xCenter'] = selected_tracks['xCenter'].apply(lambda num: [x - num[0] for x in num[:]])
-    selected_tracks.loc[:, 'yCenter'] = selected_tracks['yCenter'].apply(lambda num: [x - num[0] for x in num[:]])
+    # TODO selected_tracks.loc[:, 'xCenter'] = selected_tracks['xCenter'].apply(lambda num: [x - num[0] for x in num[:]])
+    # TODO selected_tracks.loc[:, 'yCenter'] = selected_tracks['yCenter'].apply(lambda num: [x - num[0] for x in num[:]])
 
     # Select distance, velocity, and acceleration columns
     columns_to_select = ['xCenter', 'yCenter', 'xVelocity', 'yVelocity', 'xAcceleration', 'yAcceleration']
@@ -59,11 +59,12 @@ def process_data(dataset_dir_raw, recording):
     output_file_path = os.path.join(output_directory, file_name)
 
     # Save the new_dataframe as a CSV file in the data/processed directory
+    print(output_file_path)
     new_dataframe.to_csv(output_file_path, index=False)
 
 
 # Example usage for ind data and getting all recordings
-for i in range(34):
+for i in range(1):
     # TODO fix this absolut path relation using ROOT_DIR
     recording = str(i).zfill(2)
     abs_directory = os.path.join(ROOT_DIR, raw_data_path_ind)

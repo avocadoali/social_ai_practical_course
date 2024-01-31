@@ -29,14 +29,14 @@ def perform_linear_regression(X, y):
     r2 = r2_score(y_test, y_pred)
 
     # Print the results in scientific notation
-    print(f'Mean Squared Error (MSE): {mse:.4e}')
-    print(f'Mean Absolute Error (MAE): {mae:.4e}')
-    print(f'R-squared (R²) Score: {r2:.4e}')
+    ### TODO print(f'Mean Squared Error (MSE): {mse:.4e}')
+    ### TODO print(f'Mean Absolute Error (MAE): {mae:.4e}')
+    ### TODO print(f'R-squared (R²) Score: {r2:.4e}')
 
     ### Coefficients
-    print('Coefficients:')
-    for x in model.coef_:
-        print(x)
+    ## TODO print('Coefficients:')
+    ## TODO for x in model.coef_:
+    ## TODO     print(x)
 
     # Visualize the results
     plt.figure(figsize=(5, 5))
@@ -59,5 +59,5 @@ def perform_linear_regression(X, y):
     #plt.axhline(y=0, color='r', linestyle='--')  # Add a horizontal line at y=0
 
     plt.tight_layout()
-    plt.show()
+    #### TODO plt.show()
     return model

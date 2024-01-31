@@ -9,7 +9,19 @@ data:
 
 directories:
   root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
-o
-o
+
 models:
   model_save_path: "results/models/"
+
+visualisation:
+  # Define base paths
+  base_raw_path: 'data/raw/inD/data/'
+  base_processed_path: 'data/processed/visualization_data/acceleration_model_4/'
+  tracks_number: '00_tracks.csv'
+  tracks_meta_number: '00_tracksMeta.csv'
+  recording_meat_number: '00_recordingMeta.csv'
+  background_number: '00_background.png'
+  track_ids:
+    - 6
+    - 8
+

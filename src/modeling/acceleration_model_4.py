@@ -5,10 +5,12 @@ from src.utils.linear_regressor import perform_linear_regression
 from src.utils.column_import import columns
 
 
-def run_model(columns):
+def predicted_columns(columns):
 
     # Extracting individual columns from the dataset
     s_x, s_y, v_x, v_y, a_x, a_y = columns
+    print(f's_x[0] is: {s_x[0]}')
+    print(f's_y[0] is: {s_y[0]}')
 
     # Target vector y
     y = np.concatenate([a_x[0:-2], a_y[0:-2]])    # a(k)
@@ -87,8 +89,9 @@ def run_model(columns):
     a_y_0_pred = a_xy_0_pred_first_model[half:]
 
     # Predicting velocity for the next time step
-    v_x_2_pred = c_2 * a_x_0_pred + c_1 * a_x_1 + v_x_1
-    v_y_2_pred = c_2 * a_y_0_pred + c_1 * a_y_1 + v_y_1
+    t = 0
+    v_x_2_pred = c_2 * a_x_0_pred + c_1 * a_x_1 + v_x_1 - t
+    v_y_2_pred = c_2 * a_y_0_pred + c_1 * a_y_1 + v_y_1 - t
 
     # Evaluating the predictions
     evaluate(v_x_2, v_x_2_pred)
@@ -102,14 +105,28 @@ def run_model(columns):
     a_x_0_pred = a_xy_0_pred_second_model[:half]
     a_y_0_pred = a_xy_0_pred_second_model[half:]
 
+    t = -25
     # Predicting position for the next time step
-    s_x_2_pred = s_x_1 + dt * v_x_1 + c_3 * a_x_1 + c_4 * a_x_0_pred
-    s_y_2_pred = s_y_1 + dt * v_y_1 + c_3 * a_y_1 + c_4 * a_y_0_pred
+    s_x_2_pred = s_x_1 + dt * v_x_1 + c_3 * a_x_1 + c_4 * a_x_0_pred - t
+    s_y_2_pred = s_y_1 + dt * v_y_1 + c_3 * a_y_1 + c_4 * a_y_0_pred - t
 
     # Evaluating the predictions
     evaluate(s_x_2, s_x_2_pred)
     evaluate(s_y_2, s_y_2_pred)
 
 
+    # Creating a dictionary of the predicted columns
+    predicted_columns = {
+        's_x': s_x_2_pred,
+        's_y': s_y_2_pred,
+        'v_x': v_x_2_pred,
+        'v_y': v_y_2_pred,
+        'a_x': a_x_0_pred,
+        'a_y': a_y_0_pred
+    }
+
+
+    return  predicted_columns
+
 if __name__ == '__main__':
-    run_model(columns)
+    predicted_columns(columns)
