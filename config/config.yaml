@@ -9,6 +9,7 @@ data:
 
 directories:
   root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
-
+o
+o
 models:
   model_save_path: "results/models/"

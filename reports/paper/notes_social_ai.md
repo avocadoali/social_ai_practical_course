@@ -271,3 +271,51 @@ Conclusion:
         Conclude by reiterating the significance of scene-aware and social-aware motion prediction for advancing autonomous driving safety and acceptance.
 
 This structure should help you organize your presentation effectively, covering all the essential aspects of your course and the paper abstracts.
+
+
+
+
+
+
+
+
+
+
+
+Lets say I got the follwoing  linear model in python: 
+
+y[:] = a * m[:] + b * n[:]
+
+
+I solve this model using linear regression. Now I want to rearange he model into
+
+m[:] = 1/a * y[:] - b/a * n[:]
+
+
+The resuls are pretty bad. Can I do the same with a neural network?
+
+
+
+
+y = np.concatenate([a_x[0:-2], a_y[0:-2]])    
+dt = 0.04
+A = - a_x[1:-1]                                 
+B = - a_y[1:-1]                                 
+C = s_x[2:] - s_x[1:-1] - dt * v_x[1:-1]        
+D = s_y[2:] - s_y[1:-1] - dt * v_y[1:-1]        
+
+X_b = np.vstack((
+    np.column_stack((A, C)), 
+    np.column_stack((B, D))
+    ))
+X_b.shape
+
+# First model
+first_model = perform_linear_regression(X_a, y)
+
+
+
+
+
+
+

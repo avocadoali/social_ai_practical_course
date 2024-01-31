@@ -1,28 +1,11 @@
-import numpy as np
+
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.linear_model import Ridge
 
-def perform_linear_regression(X, y):
-    # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+def evaluate(y_test, y_pred):
+    # Visualize the results
 
-
-
-    alpha = 1.0  # regularization strength
-    model = Ridge(alpha=alpha)
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-
-    ## Train a linear regression model
-    #model = LinearRegression()
-    #model.fit(X_train, y_train)
-
-    ## Make predictions on the test set
-    #y_pred = model.predict(X_test)
-
+    plt.figure(figsize=(5, 5))
     # Evaluate the model using various metrics
     mse = mean_squared_error(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
@@ -33,13 +16,6 @@ def perform_linear_regression(X, y):
     print(f'Mean Absolute Error (MAE): {mae:.4e}')
     print(f'R-squared (R²) Score: {r2:.4e}')
 
-    ### Coefficients
-    print('Coefficients:')
-    for x in model.coef_:
-        print(x)
-
-    # Visualize the results
-    plt.figure(figsize=(5, 5))
 
     # Scatter plot of actual vs. predicted values with locus (line of identity)
     plt.subplot(1, 1, 1)
@@ -60,4 +36,4 @@ def perform_linear_regression(X, y):
 
     plt.tight_layout()
     plt.show()
-    return model
+ 
