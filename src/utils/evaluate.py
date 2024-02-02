@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-def evaluate(y_test, y_pred):
+def evaluate(y_test, y_pred, title):
     # Visualize the results
 
     plt.figure(figsize=(5, 5))
@@ -21,7 +21,7 @@ def evaluate(y_test, y_pred):
     plt.subplot(1, 1, 1)
     plt.scatter(y_test, y_pred)
     plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')  # Locus
-    plt.title('Actual vs. Predicted Values')
+    plt.title(title)
     plt.xlabel('Actual Values')
     plt.ylabel('Predicted Values')
 
@@ -35,5 +35,5 @@ def evaluate(y_test, y_pred):
     #plt.axhline(y=0, color='r', linestyle='--')  # Add a horizontal line at y=0
 
     plt.tight_layout()
-    ### TODO plt.show()
+    plt.show()
  

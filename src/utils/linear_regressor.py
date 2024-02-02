@@ -4,10 +4,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.linear_model import Ridge
+from src.utils.evaluate_and_save import evaluate_and_save
 
-def perform_linear_regression(X, y):
+def perform_linear_regression(X, y, title):
     # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 
 
@@ -38,26 +39,6 @@ def perform_linear_regression(X, y):
     ## TODO for x in model.coef_:
     ## TODO     print(x)
 
-    # Visualize the results
-    plt.figure(figsize=(5, 5))
+    evaluate_and_save(y_test, y_pred, title, 'Actual Acceleration Values', 'Predicted Acceleration Value')
 
-    # Scatter plot of actual vs. predicted values with locus (line of identity)
-    plt.subplot(1, 1, 1)
-    plt.scatter(y_test, y_pred)
-    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')  # Locus
-    plt.title('Actual vs. Predicted Values')
-    plt.xlabel('Actual Values')
-    plt.ylabel('Predicted Values')
-
-    ## Residual plot
-    #plt.subplot(1, 2, 2)
-    #residuals = y_test - y_pred
-    #plt.scatter(y_pred, residuals)
-    #plt.title('Residual Plot')
-    #plt.xlabel('Predicted Values')
-    #plt.ylabel('Residuals')
-    #plt.axhline(y=0, color='r', linestyle='--')  # Add a horizontal line at y=0
-
-    plt.tight_layout()
-    #### TODO plt.show()
     return model
