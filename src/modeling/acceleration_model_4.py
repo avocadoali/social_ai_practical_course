@@ -32,7 +32,7 @@ def predicted_columns(columns):
 
     # First model
 
-    first_model = perform_linear_regression(X_first_model, y, 'Prediction of the Acceleration (Velocity formula)')
+    first_model = perform_linear_regression(X_first_model, y, 'Prediction of the Acceleration: Velocity formula')
 
     # Input features X_second_model of the second model
     dt = 0.04
@@ -52,7 +52,7 @@ def predicted_columns(columns):
     print(X_second_model.shape)
 
     # Second model
-    second_model = perform_linear_regression(X_second_model, y, 'Prediction of the Acceleration (Distance Formula)')
+    second_model = perform_linear_regression(X_second_model, y, 'Prediction of the Acceleration: Distance formula')
 
 
     y_pred_first_model =  first_model.predict(X_first_model)

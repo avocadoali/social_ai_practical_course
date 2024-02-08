@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 SMALL_SIZE = 15
 MEDIUM_SIZE = 17
-BIGGER_SIZE = 21
+BIGGER_SIZE = 20
 
 plt.rc('font', size=SMALL_SIZE)          # controls default text sizes
 plt.rc('axes', titlesize=BIGGER_SIZE)     # fontsize of the axes title

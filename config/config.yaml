@@ -6,6 +6,9 @@ data:
 
   processed_data_path:
     processed_data_test_set_0: "/data/processed/x_y_recording_00_range_384.csv"
+  
+  raw_data_path_exid:
+    exid_00: 'data/raw/exiD/data/00_tracks.csv'
 
 directories:
   root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
@@ -13,17 +16,37 @@ directories:
 models:
   model_save_path: "results/models/"
 
+# Baris filtering 1
+visualisation1:
+  # Define base paths
+  base_raw_path: 'data/raw/exiD/data/'
+  base_processed_path: 'data/processed/visualization_data/scenario_filtering_1/'
+  tracks_number:          '60_tracks.csv'
+  tracks_meta_number:     '60_tracksMeta.csv'
+  recording_meat_number:  '60_recordingMeta.csv'
+  background_number:      '60_background.png'
+  track_ids:
+    - 25
+    - 26
+    - 27
+    - 28
+    - 30
+    - 31
+    - 32
+    - 36
+
+# Baris filtering 2
 visualisation:
   # Define base paths
-  base_raw_path: 'data/raw/inD/data/'
-  base_processed_path: 'data/processed/visualization_data/acceleration_model_4/'
-  tracks_number: '00_tracks.csv'
-  tracks_meta_number: '00_tracksMeta.csv'
-  recording_meat_number: '00_recordingMeta.csv'
-  background_number: '00_background.png'
+  base_raw_path: 'data/raw/exiD/data/'
+  base_processed_path: 'data/processed/visualization_data/scenario_filtering_2/'
+  tracks_number:          '19_tracks.csv'
+  tracks_meta_number:     '19_tracksMeta.csv'
+  recording_meat_number:  '19_recordingMeta.csv'
+  background_number:      '19_background.png'
   track_ids:
     - 6
-    - 8
+
 
 figures:
   figures_save_path: "results/figures/"
