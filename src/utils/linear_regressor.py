@@ -13,8 +13,8 @@ def perform_linear_regression(X, y, title):
 
 
     alpha = 1.0  # regularization strength
-    model = LinearRegression()
-    #model = Ridge(alpha=alpha)
+    #model = LinearRegression()
+    model = Ridge(alpha=alpha)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1706267519 "/home/ali/tum/motion_planning/social_ai_practical_course/reports/formulas_latex/formulas.tex" "build/formulas.pdf" "formulas" 1706267519 0
-  "/home/ali/tum/motion_planning/social_ai_practical_course/reports/formulas_latex/formulas.tex" 1706267518 7470 a0c9ea8c0936e47b828f4d558afd9197 ""
+["pdflatex"] 1707478160 "/home/ali/tum/motion_planning/social_ai_practical_course/reports/formulas_latex/formulas.tex" "build/formulas.pdf" "formulas" 1707478160 0
+  "/home/ali/tum/motion_planning/social_ai_practical_course/reports/formulas_latex/formulas.tex" 1707478160 7450 741720f4742952632f717d7a6ee0e548 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1689853683 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1689853683 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1689853683 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -37,8 +37,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1689853683 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706261276 4483110 adb1e1d04498b9576f1f17c4219c5e03 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706261273 6768049 f4a461c598acdbeaec9c00678caa3986 ""
-  "build/formulas.aux" 1706267519 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
-  "formulas.tex" 1706267518 7470 a0c9ea8c0936e47b828f4d558afd9197 ""
+  "build/formulas.aux" 1707478160 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "formulas.tex" 1707478160 7450 741720f4742952632f717d7a6ee0e548 ""
   (generated)
   "build/formulas.aux"
   "build/formulas.log"
