@@ -116,12 +116,12 @@ In there, you can find the dataset which can be visualized using the drone-datas
 For further instructions on how to use that tool visit their github repo [here](https://github.com/ika-rwth-aachen/drone-dataset-tools) and substitute their data directory with either the ground_truth or predicted directory.
 Here is an example (note that we are now in the drone-dataset-tools repo):
 
-For the ground truth
+For the ground truth run:
 ```bash
    python3 run_track_visualization.py --dataset_dir <path_to_root_of_project>/data/processed/visualization_data/ground_truth --dataset ind --recording 00
 ```
 
-For our predicted data
+For our predicted data. Open a new terminal and run:
 ```bash
    python3 run_track_visualization.py --dataset_dir <path_to_root_of_project>/data/processed/visualization_data/predicted --dataset ind --recording 00
 ```
