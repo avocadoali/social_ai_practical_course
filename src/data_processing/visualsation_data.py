@@ -5,10 +5,6 @@ import yaml
 from src.modeling.linear_model import predicted_columns
 
 # Read the YAML configuration file
-
-
- 
-
 with open('config/config.yaml', 'r') as config_file:
     config = yaml.safe_load(config_file)['visualisation']
     
@@ -47,9 +43,10 @@ track_one_car.to_csv(tracks_ground_truth_path, index=False)
 
 
 tracks_meta = pd.read_csv(os.path.join(base_raw_path, tracks_meta_number))
-#tracks_meta_one_car = tracks_meta[tracks_meta['trackId'].isin(track_ids)]
-tracks_meta_one_car = tracks_meta[tracks_meta['trackId'].isin(track_ids)]
-#tracks_meta_one_car = tracks_meta[(tracks_meta['initialFrame'] >= 0) & (tracks_meta['finalFrame'] < 123)]
+
+tracks_meta_one_car = pd.DataFrame()
+if len(track_ids) > 0:
+    tracks_meta_one_car = tracks_meta[tracks_meta['trackId'].isin(track_ids)]
 
 tracks_meta_one_car.to_csv(tracks_meta_ground_truth_path, index=False)
 
@@ -77,10 +74,7 @@ def get_columns(file_dir):
 
     return s_x , s_y , v_x , v_y , a_x , a_y
 
-
-
 columns = get_columns(tracks_ground_truth_path)
-
 
 # Predict the dataset
 result = predicted_columns(columns)

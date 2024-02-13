@@ -28,6 +28,7 @@ def load_config():
 def evaluate_and_save(y_test, y_pred, title, xlabel = 'Actual Values', ylabel = 'Predicted Values', set_limit = False):
  
 
+    show_figure = load_config()['show_and_save_figures']
     save_path = load_config()['figures_save_path']
     
     # Evaluate the model using various metrics
@@ -40,36 +41,37 @@ def evaluate_and_save(y_test, y_pred, title, xlabel = 'Actual Values', ylabel = 
     print(f'Mean Absolute Error (MAE): {mae:.4e}')
     print(f'R-squared (R²) Score: {r2:.4e}')
 
-    # Create a scatter plot
-    plt.scatter(y_test, y_pred, alpha=0.7)
+    if show_figure:
+        # Create a scatter plot
+        plt.scatter(y_test, y_pred, alpha=0.7)
 
-    if set_limit:
-        # Setting limits for x and y axes
-        plt.xlim(-6, 6)
-        plt.ylim(-6, 6)
+        if set_limit:
+            # Setting limits for x and y axes
+            plt.xlim(-6, 6)
+            plt.ylim(-6, 6)
 
-    # Add a diagonal line for reference (perfect prediction)
-    min_val = min(np.min(y_test), np.min(y_pred))
-    max_val = max(np.max(y_test), np.max(y_pred))
-    plt.plot([min_val, max_val], [min_val, max_val], linestyle='--', color='red', linewidth=2, label='Perfect Prediction')
+        # Add a diagonal line for reference (perfect prediction)
+        min_val = min(np.min(y_test), np.min(y_pred))
+        max_val = max(np.max(y_test), np.max(y_pred))
+        plt.plot([min_val, max_val], [min_val, max_val], linestyle='--', color='red', linewidth=2, label='Perfect Prediction')
 
-    # Add labels and title
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.title(title)
+        # Add labels and title
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.title(title)
 
-    # Set aspect ratio to be equal
-    plt.gca().set_aspect('equal', adjustable='box')
+        # Set aspect ratio to be equal
+        plt.gca().set_aspect('equal', adjustable='box')
 
-    # Show legend
-    plt.legend()
+        # Show legend
+        plt.legend()
 
-    plt.gcf().set_size_inches(7,7)  # Adjust the size as needed
-    plt.savefig( os.path.join(save_path, title + '.png'))
+        plt.gcf().set_size_inches(7,7)  # Adjust the size as needed
+        plt.savefig( os.path.join(save_path, title + '.png'))
 
 
-    # Show the plot
-    plt.show()
+        # Show the plot
+        plt.show()
 
 def residuals_plot(values_ground_truth, values_pred, title):
     # Calculate residuals

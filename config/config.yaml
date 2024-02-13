@@ -27,37 +27,20 @@ directories:
 models:
   model_save_path: "results/models/"
 
-# Baris filtering 1
-visualisation1:
-  # Define base paths
-  base_raw_path: 'data/raw/exiD/data/'
-  base_processed_path: 'data/processed/visualization_data/scenario_filtering_1/'
-  tracks_number:          '60_tracks.csv'
-  tracks_meta_number:     '60_tracksMeta.csv'
-  recording_meat_number:  '60_recordingMeta.csv'
-  background_number:      '60_background.png'
-  track_ids:
-    - 25
-    - 26
-    - 27
-    - 28
-    - 30
-    - 31
-    - 32
-    - 36
-
-# Baris filtering 2
+# Visulsation of predicted cars
 visualisation:
   # Define base paths
-  base_raw_path: 'data/raw/exiD/data/'
-  base_processed_path: 'data/processed/visualization_data/scenario_filtering_2/'
-  tracks_number:          '19_tracks.csv'
-  tracks_meta_number:     '19_tracksMeta.csv'
-  recording_meat_number:  '19_recordingMeta.csv'
-  background_number:      '19_background.png'
+  base_raw_path: 'data/raw/inD/data/'
+  base_processed_path: 'data/processed/visualization_data/linear_model/'
+  tracks_number:          '00_tracks.csv'
+  tracks_meta_number:     '00_tracksMeta.csv'
+  recording_meat_number:  '00_recordingMeta.csv'
+  background_number:      '00_background.png'
+  # Specify car ids that you want to visualize
   track_ids:
-    - 6
-
+    - 1
+    - 2
 
 figures:
+  show_and_save_figures: False
   figures_save_path: "results/figures/"
