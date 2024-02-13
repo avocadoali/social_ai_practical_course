@@ -1,15 +1,26 @@
 # config.yml
+
+paths:
+  # Adjust this to your project root dir
+  root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
+
 data:
-  raw_data_path: "data/raw/inD/data/"
+  raw_data_path_ind: "data/raw/inD/data/"
+  processed_data_path_ind: 'data/processed/inD/'
+  number_of_recordings: 32
+
+
+  processed_data_path_ind_test_set:
+    processed_data_test_set_0: "data/processed/inD/x_y_recording_00_range_384.csv"
+    processed_data_dif_set: 'data/processed/scenario_samples/lane_merging/dif_set/test_set_00.csv'
+ 
   recording: "00"
   n: 384
 
-  processed_data_path:
-    processed_data_test_set_0: "/data/processed/x_y_recording_00_range_384.csv"
-  
   raw_data_path_exid:
     exid_00: 'data/raw/exiD/data/00_tracks.csv'
 
+ 
 directories:
   root_directory: "/home/ali/tum/motion_planning/social_ai_practical_course"
 

@@ -1,13 +1,11 @@
 import os
 import pandas as pd
 import numpy as np
-
 from loguru import logger
-from tracks_import import read_from_csv
+from src.data_processing.tracks_import import read_from_csv
+from src.utils.load_config import load_config
 
-from config.settings import raw_data_path_ind, processed_data_inD,ROOT_DIR
-
-def process_data(dataset_dir_raw, recording):
+def process_data(dataset_dir_raw, recording, output_directory):
     # Check if the directory exists
     if not os.path.isdir(dataset_dir_raw):
         print(dataset_dir_raw)
@@ -53,7 +51,9 @@ def process_data(dataset_dir_raw, recording):
     new_dataframe = pd.DataFrame(selected_data_unstacked)
     #display(new_dataframe)
 
-    output_directory = processed_data_inD
+    # Create processed_data_path if it doesn't exist
+    if not os.path.exists(output_directory):
+        os.makedirs(output_directory)
 
     file_name = f'x_y_recording_{recording}_range_{n}.csv'
     output_file_path = os.path.join(output_directory, file_name)
@@ -62,13 +62,17 @@ def process_data(dataset_dir_raw, recording):
     print(output_file_path)
     new_dataframe.to_csv(output_file_path, index=False)
 
+def main():
+    config = load_config()['data']
 
-# Example usage for ind data and getting all recordings
-for i in range(32):
-    # TODO fix this absolut path relation using ROOT_DIR
-    recording = str(i).zfill(2)
-    abs_directory = os.path.join(ROOT_DIR, raw_data_path_ind)
+    raw_data_path_ind = config['raw_data_path_ind']
+    processed_data_path_ind = config['processed_data_path_ind']
+    number_of_recordings = config['number_of_recordings']
 
-    process_data(abs_directory, str(recording))
+    for i in range(number_of_recordings):
+        recording = str(i).zfill(2)
+        process_data(raw_data_path_ind, str(recording), processed_data_path_ind)
 
 
+if __name__ == "__main__":
+    main()

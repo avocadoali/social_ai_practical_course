@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-from config.settings import processed_data_test_set_0, processed_data_dif_set
+from src.utils.load_config import load_config
 
 
 def import_columns(file_dir):
@@ -43,8 +43,27 @@ def import_columns_dif(file_dir):
 
     return s_x , s_y , v_x , v_y , a_x , a_y, a_x_a , a_y_a , a_x_b , a_y_b 
 
+def main():
+    config = load_config()['data']['processed_data_path_ind_test_set']
+
+    processed_data_test_set_0 = config['processed_data_test_set_0']
+    processed_data_dif_set = config['processed_data_dif_set']
+
+    #create directory if not exists
+    if not os.path.exists(processed_data_dif_set):
+        os.makedirs(processed_data_dif_set)
+
+    if not os.path.exists(processed_data_test_set_0):
+        os.makedirs(processed_data_test_set_0)
 
 
-# Import test set 0
-columns = import_columns(processed_data_test_set_0)
-columns_dif = import_columns_dif(processed_data_dif_set)
+    # Import test set 0
+    columns = import_columns(processed_data_test_set_0)
+    #columns_dif = import_columns_dif(processed_data_dif_set)
+    print('printing columns:')
+    print(columns)
+    return columns
+
+
+columns = main()
+    

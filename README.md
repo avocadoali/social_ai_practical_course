@@ -68,6 +68,31 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
-Now you are able to run all the Jupyter Notebooks in the modeling and integration_method directory.
 
-To visualize the findings run the 
+Put the exiD, rounD, and inD datasets into the data/raw path.
+
+```bash
+cp -r path_to/exiD path_to_root_of_project/data/raw
+cp -r path_to/inD path_to_root_of_project/data/raw
+cp -r path_to/rounD path_to_root_of_project/data/raw
+```
+
+
+Then, run the data_processing_all.py script from the root of this project:
+
+```python 
+python src/data_processing/data_processing_all.py 
+```
+This will perform the data processing for training all the models (this can take a while).
+
+Now you are able to run all the Jupyter Notebooks in the modeling and integration_method directory.
+The most interesting are the linear_model.ipynb and the ballistic_integration.ipynb
+
+You can also just run the main.py to both run the preprocessing and the training and evaluation of our linear model.
+Though, I really encourage you to run the notebook for a better visual understanding.
+
+```python 
+python main.py
+```
+
+

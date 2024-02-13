@@ -2,7 +2,7 @@ import pandas as pd
 import shutil
 import os
 import yaml
-from src.modeling.acceleration_model_4 import predicted_columns
+from src.modeling.linear_model import predicted_columns
 
 # Read the YAML configuration file
 
