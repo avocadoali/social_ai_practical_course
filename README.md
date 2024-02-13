@@ -29,7 +29,7 @@ The project is structured as follows:
 
 Here's a brief overview of the directory structure:
 
-- **config:** Contains configuration files for various project settings.
+- **config:** Contains the configuration file for all project settings.
 
 - **data:**
   - **raw:** Holds the raw, unprocessed data.
@@ -44,12 +44,10 @@ Here's a brief overview of the directory structure:
 
 - **src:**
   - **data_processing:** Houses scripts/modules for data preprocessing.
-  - **integration_method:** Includes the code for the integration methods
-  - **modeling:** Contains the code for building and training the models.
-  - **utils:** Holds utility functions and helper modules such as colums imports and a linear regression module.
+  - **modeling:** Contains the code for our linear model
+  - **utils:** Holds utility functions and helper modules such as columns imports and a linear regression module.
 
-
-## Running the porject
+## Running the project
 
 Create the python environment (we are using conda for the environment and pip to install the requirement. Feel free to use whatever setup works best for you):
 
@@ -72,9 +70,9 @@ pip install -r requirements.txt
 Put the exiD, rounD, and inD datasets into the data/raw path.
 
 ```bash
-cp -r path_to/exiD path_to_root_of_project/data/raw
-cp -r path_to/inD path_to_root_of_project/data/raw
-cp -r path_to/rounD path_to_root_of_project/data/raw
+cp -r <path_to>/exiD <path_to_root_of_project>/data/raw
+cp -r <path_toby>/inD <path_to_root_of_project>/data/raw
+cp -r <path_toby>/rounD <path_to_root_of_project>/data/raw
 ```
 
 
@@ -87,6 +85,9 @@ This will perform the data processing for training all the models (this can take
 
 Now you are able to run all the Jupyter Notebooks in the modeling and integration_method directory.
 The most interesting are the linear_model.ipynb and the ballistic_integration.ipynb
+```
+run linear_model.ipynb and ballistic_integration.ipynb through your prefered IDE
+```
 
 You can also just run the main.py to both run the preprocessing and the training and evaluation of our linear model.
 Though, I really encourage you to run the notebook for a better visual understanding.
@@ -95,4 +96,33 @@ Though, I really encourage you to run the notebook for a better visual understan
 python main.py
 ```
 
+## Visualization of the linear model
+To run the visualization of a prediction run the visualization_data.py
+
+```python
+python src/data_processing/visualsation_data.py 
+```
+
+You can specify what you want to visualize in the config.yaml at the visulation part.
+This will run its own preprocessing and predict the selected dataset.
+For more seamless use, I suggest you to set the show_and_save_figure in the config file to false.
+``` yaml
+  show_and_save_figures: False
+```
+
+The dataset which you can find in the 'base_processed_path', which
+was set in the config file, will contain a predicted and ground_truth directory. 
+In there, you can find the dataset which can be visualized using the drone-dataset-tool. 
+For further instructions on how to use that tool visit their github repo [here](https://github.com/ika-rwth-aachen/drone-dataset-tools) and substitute their data directory with either the ground_truth or predicted directory.
+Here is an example (note that we are now in the drone-dataset-tools repo):
+
+For the ground truth
+```bash
+   python3 run_track_visualization.py --dataset_dir <path_to_root_of_project>/data/processed/visualization_data/ground_truth --dataset ind --recording 00
+```
+
+For our predicted data
+```bash
+   python3 run_track_visualization.py --dataset_dir <path_to_root_of_project>/data/processed/visualization_data/predicted --dataset ind --recording 00
+```
 

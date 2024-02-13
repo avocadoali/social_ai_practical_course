@@ -31,7 +31,7 @@ models:
 visualisation:
   # Define base paths
   base_raw_path: 'data/raw/inD/data/'
-  base_processed_path: 'data/processed/visualization_data/linear_model/'
+  base_processed_path: 'data/processed/visualization_data/'
   tracks_number:          '00_tracks.csv'
   tracks_meta_number:     '00_tracksMeta.csv'
   recording_meat_number:  '00_recordingMeta.csv'
@@ -42,5 +42,6 @@ visualisation:
     - 2
 
 figures:
-  show_and_save_figures: False
+  show_and_save_figures: True
+  # show_and_save_figures: False    # Uncomment this if you dont want to show and save the figures
   figures_save_path: "results/figures/"
