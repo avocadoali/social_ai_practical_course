@@ -26,7 +26,6 @@ def predicted_columns(columns = columns):
 
     """
 
-
     s_x, s_y, v_x, v_y, a_x, a_y = columns
     s_x_0 = s_x[:-2]
     s_y_0 = s_y[:-2]

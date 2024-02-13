@@ -1,10 +1,15 @@
 # Social AI
 
-This repository contains the code for the practical course: Motion Planing of Autnomous Vehicles - Social AI 
+This repository contains the code for the practical course: Motion Planing of Autnomous Vehicles -
+Scene-aware and Social-aware Motion Prediction for Autonomous Driving
 
-We are looking for an algorithm which implements the social interaction between cars. 
-For that we have to find a way to describe the motion of each car first. 
-The goal is to find an efficient and accurate numerical integration model. 
+Our topic was creating scene- and social-aware predictions for vehicles. 
+As we are working with discrete datasets, previous teams were experimenting different 
+integration methods to describe the motion of a vehicle. 
+Though, they faced some problems with the inherent discretization error.
+
+This is the code for testing various models to accomodate that discretization error. 
+Further explanations can be found in the report [here](https://github.com/avocadoali/social_ai_report/blob/main/build/main.pdf).
 
 ## Project Structure
 
@@ -66,6 +71,10 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
+
+For the dataset you can request them on the following [website](https://levelxdata.com/).
+Specifically we used the [ind](https://levelxdata.com/ind-dataset/) and [exiD](https://levelxdata.com/exid-dataset/) datasets.
+Requesting the datasets may take a few days though.
 
 Put the exiD, rounD, and inD datasets into the data/raw path.
 
