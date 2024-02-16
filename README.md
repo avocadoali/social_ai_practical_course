@@ -24,11 +24,22 @@ The project is structured as follows:
 ├── reports
 ├── results
 │   └── models
-└── src
-    ├── data_processing
-    ├── integration_method
-    ├── modeling
-    └── utils
+├── src
+│   ├── data_processing
+│   ├── integration_method
+│   ├── modeling
+│   └── utils
+└── filtering_module
+    ├── interactions_filter
+    │   └── ...
+    ├── csv_files
+    ├── utilities
+    │   ├── data_loading.py
+    │   └── ...
+    └── data
+        ├── exid
+        └── ...
+
 
 ```
 
@@ -51,6 +62,12 @@ Here's a brief overview of the directory structure:
   - **data_processing:** Houses scripts/modules for data preprocessing.
   - **modeling:** Contains the code for our linear model
   - **utils:** Holds utility functions and helper modules such as columns imports and a linear regression module.
+
+- **filtering_module:** 
+  - **interactions_filter:** Implements various filters for vehicle interactions (e.g., overtaking, lane changing)
+  - **csv_files:** Contains CSV files with filtered vehicle data
+  - **utilities:** Includes scripts for data loading and track importing
+  - **data:** Comprises subdirectories (`inD`, `exid`, `round`) with datasets
 
 ## Running the project
 
