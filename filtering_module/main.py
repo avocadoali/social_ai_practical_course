@@ -102,7 +102,10 @@ def process_single_recording(recording_id, dataset_dir):
                                                                           relative_speed_threshold=0.5, tailgating_distance_threshold=5, yielding_speed_threshold=1, yielding_distance_threshold=5)
     # overtaking_behavior_data = interactions_filter.detect_overtaking(df_tracks, interaction_distance_threshold=10, relative_speed_threshold=0.5, position_change_threshold=0.9)
 
+
+    # This prints serves as a check for the filtering operation
     print(all_distance_info_filtered)
+
     # Check and print information about exiting and entering vehicles
     exiting_exists = check_for_exiting_vehicles(df_tracks)
     entering_exists = check_for_entering_vehicles(df_tracks)
@@ -118,6 +121,8 @@ def process_single_recording(recording_id, dataset_dir):
             # Convert each tuple to a string and write it to the file
             file.write(str(data) + '\n')
     process_and_export_car_data(all_distance_info_filtered, f'current_car_data_{recording}.csv', f'other_car_data_{recording}.csv')
+
+    # These functions are for specific types of interactions
     # merge_onto_exit_ramps_data = interactions_filter.filter_merge_onto_exit_ramps(exid_data)
     # yielding_behavior_data = interactions_filter.filter_yielding_behavior(exid_data)
     # speed_adjustment_data = interactions_filter.filter_speed_adjustment(exid_data)
@@ -195,7 +200,7 @@ def main():
 
     process_and_export_car_data(data_from_file, 'current_car_data.csv', 'other_car_data.csv')
 
-
+    # This is for using the function for all recordings
     # for recording in range(0, 93):  # Loop through all recordings from 0 to 92
     #     process_single_recording(recording, dataset_dir)
 

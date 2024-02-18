@@ -1,3 +1,5 @@
+# This model is mostly integrated inside the entering behaviour function due to runtime optimizatiton.
+
 import pandas as pd
 import numpy as np
 from .preprocessing import preprocess_vehicle_data, calculate_mean_of_last_frames

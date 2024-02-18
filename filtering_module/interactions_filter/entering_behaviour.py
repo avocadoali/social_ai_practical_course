@@ -198,7 +198,6 @@ def check_vehicle_interaction_and_relative_velocity(grouped_data, current_record
                                     other_frame_data['odrRoadId'].values[0][frame - unique_frames_2[0]] and current_frame_data['odrLaneId'].values[0][frame_index] ==
                                         other_frame_data['odrLaneId'].values[0][frame - unique_frames_2[0]]):
                                 distance_info[pair_key] = []
-                                # print("same lane")
                                 # print(
                                 #     f"Vehicles in the same lane: Track ID {current_trackId} and Track ID {trackId} at frame {frame}")
                                 distance_tuple = (current_recordingId, current_trackId, trackId, frame, distance, current_frame_data['xVelocity'].values[0][frame_index], current_frame_data['yVelocity'].values[0][frame_index], other_frame_data['xVelocity'].values[0][frame_index], other_frame_data['yVelocity'].values[0][frame_index], current_frame_data['xAcceleration'].values[0][frame_index], current_frame_data['yAcceleration'].values[0][frame_index], other_frame_data['xAcceleration'].values[0][frame_index], other_frame_data['yAcceleration'].values[0][frame_index], current_frame_data['xCenter'].values[0][frame_index], current_frame_data['yCenter'].values[0][frame_index], other_frame_data['xCenter'].values[0][frame_index], other_frame_data['yCenter'].values[0][frame_index])

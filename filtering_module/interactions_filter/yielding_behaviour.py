@@ -1,3 +1,6 @@
+# This model is deprecated and serves as an example. Please use the new model inside the entering_behaviour.py.
+# It is integrated into entering behaviour function due to runtime optimizatiton.
+
 import pandas as pd
 
 
@@ -8,9 +11,6 @@ def filter_yielding_behaviour(data, yielding_threshold=10):
     Parameters:
     data (pandas.DataFrame): The dataset to filter.
     yielding_threshold (float): The speed reduction threshold for yielding. Defaults to 10.
-
-    Returns:
-    pandas.DataFrame: A new DataFrame containing only the data for objects exhibiting yielding behavior.
     """
     # Create an empty DataFrame to store the filtered data
     yielding_data = pd.DataFrame()

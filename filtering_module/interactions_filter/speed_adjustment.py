@@ -1,3 +1,6 @@
+# This model is deprecated and serves as an example. Please use the new model inside the entering_behaviour.py.
+# It is integrated into entering behaviour function due to runtime optimizatiton.
+
 import pandas as pd
 
 

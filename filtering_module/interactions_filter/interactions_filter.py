@@ -2,7 +2,6 @@
 from .exiting_behaviour import detect_exiting_vehicles
 from .overtaking import detect_overtaking
 from .entering_behaviour import detect_entering_vehicles
-from .merge_onto_exit_ramps import filter_merge_onto_exit_ramps
 from .yielding_behaviour import filter_yielding_behaviour
 from .speed_adjustment import filter_speed_adjustment
 from .lane_changing import detect_lane_changes
@@ -34,12 +33,6 @@ class InteractionsFilter:
                 Detects overtaking maneuvers based on specified thresholds.
                 """
         return detect_overtaking(exid_data)
-
-    def filter_merge_onto_exit_ramps(self, exid_data):
-        """
-                Filters vehicles that are merging onto exit ramps.
-                """
-        return filter_merge_onto_exit_ramps(exid_data)
 
     def filter_yielding_behavior(self, exid_data):
         """
