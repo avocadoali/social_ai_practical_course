@@ -15,6 +15,13 @@ recording = 83 #16
 
 
 def process_and_export_car_data(distance_info, current_car_csv_path, other_car_csv_path):
+    """
+        Process and export car data to CSV files.
+        Args:
+        - distance_info: List of dictionaries containing distance information between cars.
+        - current_car_csv_path: File path to export data related to the current car.
+        - other_car_csv_path: File path to export data related to other cars.
+        """
     # Initializing lists to store data for the current car and the other car
     current_car_data = []
     other_car_data = []
@@ -72,6 +79,13 @@ def process_and_export_car_data(distance_info, current_car_csv_path, other_car_c
 
 
 def process_single_recording(recording_id, dataset_dir):
+    """
+        Process data for a single recording.
+
+        Args:
+        - recording_id: ID of the recording.
+        - dataset_dir: Directory containing the dataset.
+        """
     # Format recording_id with leading zero if it's less than 10
     formatted_recording_id = f"{recording_id:02d}"  # This will add a leading zero for single-digit numbers
 
@@ -200,7 +214,7 @@ def main():
 
     process_and_export_car_data(data_from_file, 'current_car_data.csv', 'other_car_data.csv')
 
-    # This is for using the function for all recordings
+    # This is for using the function for all recordings / You need to remove comments to use this
     # for recording in range(0, 93):  # Loop through all recordings from 0 to 92
     #     process_single_recording(recording, dataset_dir)
 
