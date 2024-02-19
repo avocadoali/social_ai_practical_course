@@ -1,6 +1,6 @@
 # Social AI
 
-This repository contains the code for the practical course: Motion Planing of Autnomous Vehicles -
+This [repository](https://github.com/avocadoali/social_ai_practical_course) contains the code for the practical course: Motion Planing of Autnomous Vehicles -
 Scene-aware and Social-aware Motion Prediction for Autonomous Driving
 
 Our topic was creating scene- and social-aware predictions for vehicles. 
@@ -96,9 +96,9 @@ Requesting the datasets may take a few days though.
 Put the exiD, rounD, and inD datasets into the data/raw path.
 
 ```bash
-cp -r <path_to>/exiD <path_to_root_of_project>/data/raw
-cp -r <path_toby>/inD <path_to_root_of_project>/data/raw
-cp -r <path_toby>/rounD <path_to_root_of_project>/data/raw
+cp -r <path_to_dataset>/exiD <path_to_root_of_project>/data/raw
+cp -r <path_to_dataset>/inD <path_to_root_of_project>/data/raw
+cp -r <path_to_dataset>/rounD <path_to_root_of_project>/data/raw
 ```
 
 
@@ -112,7 +112,7 @@ This will perform the data processing for training all the models (this can take
 Now you are able to run all the Jupyter Notebooks in the modeling and integration_method directory.
 The most interesting are the linear_model.ipynb and the ballistic_integration.ipynb
 ```
-run linear_model.ipynb and ballistic_integration.ipynb through your prefered IDE
+run the notebooks, linear_model.ipynb and ballistic_integration.ipynb using your prefered editor (we used vscode)
 ```
 
 You can also just run the main.py to both run the preprocessing and the training and evaluation of our linear model.
@@ -151,4 +151,3 @@ For our predicted data. Open a new terminal and run:
 ```bash
    python3 run_track_visualization.py --dataset_dir <path_to_root_of_project>/data/processed/visualization_data/predicted --dataset ind --recording 00
 ```
-
