@@ -37,3 +37,49 @@ pip install -r requirements.txt
 
 ```bash
 python main.py
+```
+
+# Analyzing Vehicles
+
+This program analyzes vehicles in the dataset. It processes every car in order, and the progress is displayed on the console.
+The analysis starts with the following indicator: "------------ Analyzing vehicles ------------".
+
+1. When the program encounters micro behaviors such as hard braking, lane changes, overtaking, etc., it will indicate them in the console in the following format:
+"Hard braking detected for Track ID {trackId} in frames {frame_range}"
+
+
+2. There are further indicators which are commented out. They are described in the code. You just need to delete the comment sign in front of it. For example:
+
+    ```python
+    # print(f"Vehicles {current_trackId} and {trackId} are close (distance: {distance}) at frame {frame}")
+    ```
+    Just delete the comment sign and the program will display the message in the console.
+    ```python
+    print(f"Vehicles {current_trackId} and {trackId} are close (distance: {distance}) at frame {frame}")
+    ```
+
+3. When analyzing the vehicles, the program will output the cars which are getting close like this example (for each car and at the each step):
+    ```
+    {(4, 5): [(83, 4, 5, 0, 43.2162538456308, 44.2351, -3.4165, 43.7038, -5.5957, 0.4539, 1.467, 0.4935, 1.5686, 401.9079, -213.1897, 358.9013, -208.938)]}
+    ```
+    The output follows this structure:
+    ```
+    [First car Id, Second car Id): [Recording Id, First Car Id, Second Car Id, Frame number, distance between cars, First car Velocity, First car yVelocity, Second car xVelocity, Second car yVelocity, First car Acceleration, First car Acceleration, Second car Acceleration, Second car Acceleration)]}, {({...): [(..)]}
+    ```
+    At the end of the program, the output will be transformed (for each car) into a CSV file and saved in the "csv_files" directory. It can be later used for the integration module. For each recording, the file will be label with the recording id.
+
+
+4. Vehicles which are changing lanes are also indicated in the console.
+
+
+5. In the latest output of the program, you will see the following:
+"---record entering exiting---" indicator, which outputs the entering and exiting behavior in this format:
+    ```
+    (recording id, current track id, x, frame number, x, entering or exiting behavior)
+    ```
+   
+6. After the indicator, "These are the cars getting closer and having interaction," all interacting cars in the current recording are outputted in this structure:
+    ```
+    {[First car Id, Second car Id): [Recording Id, First Car Id, Second Car Id, Frame number, distance between cars, First car Velocity, First car yVelocity, Second car xVelocity, Second car yVelocity, First car Acceleration, First car Acceleration, Second car Acceleration,
+    Second car Acceleration)]}, {({...): [(..)]}
+    ```

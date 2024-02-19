@@ -118,6 +118,7 @@ def process_single_recording(recording_id, dataset_dir):
 
 
     # This prints serves as a check for the filtering operation
+    print("These are the cars getting closer and having interaction")
     print(all_distance_info_filtered)
 
     # Check and print information about exiting and entering vehicles

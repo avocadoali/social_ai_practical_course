@@ -98,9 +98,6 @@ def preprocess_vehicle_data(data):
     # Reset index after row removal
     data_cleaned.reset_index(drop=True, inplace=True)
 
-    # Check the data info again to ensure clean data
-    data_cleaned.info()
-
     # Convert 'recordingId' and 'frame' columns to numeric
     data_cleaned['recordingId'] = pd.to_numeric(data_cleaned['recordingId'], errors='coerce')
     data_cleaned['frame'] = pd.to_numeric(data_cleaned['frame'], errors='coerce')
@@ -113,9 +110,6 @@ def preprocess_vehicle_data(data):
 
     # Convert 'odrLaneId' to numeric as well
     data_cleaned['odrLaneId'] = pd.to_numeric(data_cleaned['odrLaneId'], errors='coerce')
-
-    # Check the data info again to ensure clean data
-    data_cleaned.info()
 
     # Also show the first few rows to verify the changes
     data_cleaned.head()

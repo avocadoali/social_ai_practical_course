@@ -29,12 +29,6 @@ def detect_overtaking(data, interaction_distance_threshold=10, relative_speed_th
 
     print("------------ Analyzing vehicles ------------")
 
-    with pd.option_context('display.max_rows', 4,
-                           'display.max_columns', 50,
-                           'display.precision', 3,
-                           ):
-        print(data)
-
     for (recordingId, trackId), group in tqdm(grouped_data, desc="Analyzing vehicles"):
     # for (recordingId, trackId), group in grouped_data:
         sorted_group = group.sort_values(by='frame')
